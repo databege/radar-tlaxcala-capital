@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Radar Ejecutivo - Tlaxcala Capital</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,544 +17,492 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
-                    colors: {
-                        brand: {
-                            50: '#fdf2f2',
-                            100: '#fde8e8',
-                            500: '#e53e3e',
-                            600: '#c53030',
-                            800: '#9b2c2c',
-                            900: '#742a2a',
-                        },
-                        executive: {
-                            dark: '#0f172a',
-                            card: '#1e293b',
-                            accent: '#3b82f6',
-                        }
-                    }
                 }
             }
         }
     </script>
     <style>
-        /* Custom scrollbar for mobile frame */
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 4px;
             height: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #090d16;
         }
         ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
+            background: #334155;
             border-radius: 4px;
         }
     </style>
 </head>
-<body class="bg-slate-950 font-sans text-slate-100 min-h-screen flex flex-col items-center justify-center p-2 sm:p-6">
+<body class="bg-slate-950 font-sans text-slate-100 min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
 
-    <header class="mb-4 text-center">
-        <span class="inline-block px-3 py-1 mb-1 text-xs font-semibold tracking-wider text-blue-400 uppercase bg-blue-950/60 border border-blue-800/50 rounded-full">DIRS-TLX • Versión Analítica</span>
-        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Radar semanal en el municipio de Tlaxcala</h1>
-        <p class="text-xs sm:text-sm text-slate-400">22 sep al 28 sep | Formato Ejecutivo Móvil</p>
+    <!-- Top Header Bar -->
+    <header class="sticky top-0 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 py-3 z-40 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-2.5">
+            <div class="w-9 h-9 rounded-xl bg-red-950/60 border border-red-700/50 flex items-center justify-center text-red-400 font-bold text-xs shadow-inner">
+                TLX
+            </div>
+            <div>
+                <span class="inline-block px-2 py-0.5 text-[10px] font-semibold tracking-wider text-blue-400 uppercase bg-blue-950/60 border border-blue-800/50 rounded-md mb-0.5">DIRS-TLX • 22-28 Sep</span>
+                <h1 class="text-xs sm:text-sm font-bold text-slate-100 leading-tight">Radar semanal en el municipio de Tlaxcala</h1>
+            </div>
+        </div>
+        <button onclick="openModal()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-xl border border-slate-700 transition flex items-center active:scale-95 touch-manipulation shrink-0">
+            <i class="fa-solid fa-circle-info mr-1.5 text-blue-400"></i> Metodología
+        </button>
     </header>
 
-    <!-- Smartphone Wrapper Container -->
-    <div class="w-full max-w-sm sm:max-w-md bg-slate-900 border-[8px] sm:border-[12px] border-slate-800 rounded-[40px] shadow-2xl overflow-hidden flex flex-col h-[82vh] max-h-[850px] relative">
-        
-        <!-- Phone Speaker & Camera Notch -->
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 h-5 w-32 bg-slate-800 rounded-b-2xl z-50 flex items-center justify-center">
-            <div class="w-12 h-1 bg-slate-700 rounded-full"></div>
-            <div class="w-2 h-2 bg-slate-900 rounded-full ml-2"></div>
-        </div>
+    <!-- Navigation Tabs (Fully Touch Optimized) -->
+    <nav class="sticky top-[57px] bg-slate-900/90 backdrop-blur-md border-b border-slate-800 p-2 z-30 flex space-x-2 overflow-x-auto shadow-sm">
+        <button onclick="switchTab('tab-resumen')" id="btn-tab-resumen" class="tab-btn flex-1 min-w-[100px] py-2.5 px-3 rounded-xl font-medium text-xs bg-blue-600 text-white shadow-md transition flex items-center justify-center space-x-1.5 touch-manipulation">
+            <i class="fa-solid fa-chart-pie text-sm"></i>
+            <span>1. Resumen</span>
+        </button>
+        <button onclick="switchTab('tab-senales')" id="btn-tab-senales" class="tab-btn flex-1 min-w-[100px] py-2.5 px-3 rounded-xl font-medium text-xs text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center justify-center space-x-1.5 touch-manipulation">
+            <i class="fa-solid fa-triangle-exclamation text-sm"></i>
+            <span>2. Señales</span>
+        </button>
+        <button onclick="switchTab('tab-territorio')" id="btn-tab-territorio" class="tab-btn flex-1 min-w-[100px] py-2.5 px-3 rounded-xl font-medium text-xs text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center justify-center space-x-1.5 touch-manipulation">
+            <i class="fa-solid fa-map-location-dot text-sm"></i>
+            <span>3. Territorio</span>
+        </button>
+        <button onclick="switchTab('tab-politicos')" id="btn-tab-politicos" class="tab-btn flex-1 min-w-[100px] py-2.5 px-3 rounded-xl font-medium text-xs text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center justify-center space-x-1.5 touch-manipulation">
+            <i class="fa-solid fa-users text-sm"></i>
+            <span>4. Políticos</span>
+        </button>
+    </nav>
 
-        <!-- Phone Status Bar -->
-        <div class="bg-slate-900 px-6 pt-4 pb-2 text-[11px] font-medium text-slate-400 flex justify-between items-center z-40 border-b border-slate-800/80">
-            <span>09:41</span>
-            <div class="flex items-center space-x-1.5">
-                <i class="fa-solid fa-signal text-[10px]"></i>
-                <i class="fa-solid fa-wifi text-[10px]"></i>
-                <i class="fa-solid fa-battery-full text-xs"></i>
-            </div>
-        </div>
+    <!-- Main Scrollable Content Container -->
+    <main class="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-6 space-y-5">
 
-        <!-- App Header Bar inside Phone -->
-        <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between z-30">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 rounded-full bg-red-900/40 border border-red-700/50 flex items-center justify-center text-red-400 font-bold text-xs">
-                    TLX
-                </div>
-                <div>
-                    <h2 class="text-xs font-bold text-slate-100 leading-tight">Radar Semanal</h2>
-                    <p class="text-[10px] text-slate-400">Lectura neutral del tablero</p>
-                </div>
-            </div>
-            <button onclick="openModal()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700 transition">
-                <i class="fa-solid fa-circle-info mr-1"></i> Resumen
-            </button>
-        </div>
-
-        <!-- Navigation Tabs -->
-        <div class="flex bg-slate-900/90 border-b border-slate-800 px-1 py-1.5 space-x-1 overflow-x-auto text-xs shrink-0">
-            <button onclick="switchTab('tab-resumen')" id="btn-tab-resumen" class="tab-btn flex-1 py-1.5 px-3 rounded-lg font-medium bg-blue-600 text-white shadow-sm transition whitespace-nowrap">
-                <i class="fa-solid fa-chart-pie mr-1"></i> 1. Resumen
-            </button>
-            <button onclick="switchTab('tab-senales')" id="btn-tab-senales" class="tab-btn flex-1 py-1.5 px-3 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition whitespace-nowrap">
-                <i class="fa-solid fa-triangle-exclamation mr-1"></i> 2. Señales
-            </button>
-            <button onclick="switchTab('tab-territorio')" id="btn-tab-territorio" class="tab-btn flex-1 py-1.5 px-3 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition whitespace-nowrap">
-                <i class="fa-solid fa-map-location-dot mr-1"></i> 3. Territorio
-            </button>
-            <button onclick="switchTab('tab-politicos')" id="btn-tab-politicos" class="tab-btn flex-1 py-1.5 px-3 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition whitespace-nowrap">
-                <i class="fa-solid fa-users mr-1"></i> 4. Políticos
-            </button>
-        </div>
-
-        <!-- Scrollable Content Area -->
-        <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-950 text-slate-200 text-sm">
-
-            <!-- TAB 1: RESUMEN EJECUTIVO -->
-            <div id="tab-resumen" class="tab-content space-y-4">
-                <!-- Executive Alert Banner -->
-                <div class="bg-gradient-to-r from-red-950/70 to-slate-900 border-l-4 border-red-500 p-3.5 rounded-xl shadow-md">
-                    <div class="flex items-start">
-                        <div class="text-red-400 text-lg mr-2.5 mt-0.5"><i class="fa-solid fa-bullhorn"></i></div>
-                        <div>
-                            <h3 class="text-xs font-bold text-red-200 uppercase tracking-wide">Para decidir</h3>
-                            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                                La semana la definió la <span class="font-semibold text-white">violencia contra una mujer en San Lucas Cuauhtelulpan</span> y un <span class="font-semibold text-white">reclamo vecinal en Acuitlapilco</span>, no la carrera por la capital.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Metrics Cards (Grid) -->
-                <div class="grid grid-cols-2 gap-2.5">
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
-                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Menciones Capital</div>
-                        <div class="text-xl font-bold text-white mt-1">967 <span class="text-xs font-normal text-slate-400">(650 textos)</span></div>
-                        <div class="text-[10px] text-blue-400 mt-1 flex items-center">
-                            <i class="fa-solid fa-chart-line mr-1"></i> Total gral: 1,171
-                        </div>
-                    </div>
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
-                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Negatividad Real</div>
-                        <div class="text-xl font-bold text-red-400 mt-1">20% <span class="text-xs font-normal text-slate-400">vs 2% sist.</span></div>
-                        <div class="text-[10px] text-slate-400 mt-1">190 de 967 menciones</div>
-                    </div>
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
-                        <div class="text-[10px] text-slate-400 uppercase font-semibold" title="Menciones de personas reales comentando directamente">Voz Ciudadana ⓘ</div>
-                        <div class="text-xl font-bold text-amber-400 mt-1">57 <span class="text-xs font-normal text-slate-400">comentarios</span></div>
-                        <div class="text-[10px] text-slate-400 mt-1">Solo 6% voz directa</div>
-                    </div>
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
-                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Cuauhtelulpan</div>
-                        <div class="text-xl font-bold text-white mt-1">2,283 <span class="text-xs font-normal text-slate-400">interacc.</span></div>
-                        <div class="text-[10px] text-red-400 mt-1">36 pub (prom. 10)</div>
-                    </div>
-                </div>
-
-                <!-- Explanation Box for Citizen Voice & Automated Systems -->
-                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-800 text-xs space-y-2">
-                    <h4 class="font-bold text-blue-400 flex items-center">
-                        <i class="fa-solid fa-circle-question mr-1.5"></i> ¿Qué significan estos indicadores?
-                    </h4>
-                    <p class="text-slate-300 leading-relaxed">
-                        • <strong class="text-white">Voz Ciudadana (57 comentarios):</strong> Es la opinión orgánica y directa escrita por personas reales en redes sociales. El 94% restante de las menciones corresponde a notas de medios, boletines oficiales o páginas institucionales.
-                    </p>
-                    <p class="text-slate-300 leading-relaxed">
-                        • <strong class="text-white">Negatividad del Sistema (2%):</strong> Es lo que detecta automáticamente el software de monitoreo. Sin embargo, al hacer la lectura analítica (DIRS-TLX), la negatividad real sube al <strong class="text-red-400">20%</strong> debido a denuncias de seguridad y servicios.
-                    </p>
-                </div>
-
-                <!-- Top 10 Temas de la Semana -->
-                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-800">
-                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3 flex items-center justify-between">
-                        <span>Top 10 Temas de la Semana</span>
-                        <span class="text-[10px] text-slate-500">vs Promedio 3 Meses</span>
-                    </h3>
-                    <div class="space-y-2 text-xs">
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">1. Política y elección 2027</span>
-                                <p class="text-[10px] text-slate-400">Encuestas de Morena y designación</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-blue-950 text-blue-300 font-bold rounded text-[10px]">129 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">2. Seguridad</span>
-                                <p class="text-[10px] text-slate-400">Menos notas, mayor impacto</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-red-950 text-red-300 font-bold rounded text-[10px]">114 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">3. Movilidad y transporte</span>
-                                <p class="text-[10px] text-slate-400">Dudas por retornos del nuevo puente</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 font-bold rounded text-[10px]">114 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">4. Calles y obra pública</span>
-                                <p class="text-[10px] text-slate-400">Bacheo y distribuidor vial</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 font-bold rounded text-[10px]">106 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">5. Cultura, turismo y Feria</span>
-                                <p class="text-[10px] text-slate-400">Pausa antes de Feria de Tlaxcala</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 font-bold rounded text-[10px]">89 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">6. Salud</span>
-                                <p class="text-[10px] text-slate-400">Hospital y atención de emergencias</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 font-bold rounded text-[10px]">74 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">7. Bienestar y DIF</span>
-                                <p class="text-[10px] text-slate-400">Programas sociales</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 font-bold rounded text-[10px]">74 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">8. Lluvias e inundaciones</span>
-                                <p class="text-[10px] text-slate-400">Desazolve en Loma Bonita</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 font-bold rounded text-[10px]">62 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">9. Educación y maestros</span>
-                                <p class="text-[10px] text-slate-400">Marcha SNTE 31</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 font-bold rounded text-[10px]">50 menc.</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 bg-slate-800/60 rounded-lg">
-                            <div>
-                                <span class="font-bold text-white">10. Panteones y servicios</span>
-                                <p class="text-[10px] text-slate-400">Acuitlapilco exige continuidad (Sube 2.6x)</p>
-                            </div>
-                            <span class="px-2 py-0.5 bg-red-950 text-red-300 font-bold rounded text-[10px]">46 menc.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Action Recommendation -->
-                <div class="bg-blue-950/40 border border-blue-800/40 p-3.5 rounded-xl space-y-2">
-                    <h4 class="text-xs font-bold text-blue-300 flex items-center">
-                        <i class="fa-solid fa-lightbulb mr-1.5"></i> Acciones Prioritarias Destacadas
-                    </h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        • <strong class="text-white">Fijar postura sobre seguridad de las mujeres en el sur:</strong> Respuesta a órdenes de restricción, alumbrado y patrullaje en Cuauhtelulpan (Plazo: 7 días).
-                    </p>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        • <strong class="text-white">Abrir diálogo con la comisión del nuevo panteón de Acuitlapilco:</strong> Comunicar una fecha por parte del Presidente Municipal (Plazo: Antes del 5 de octubre).
-                    </p>
-                </div>
-            </div>
-
-            <!-- TAB 2: SEÑALES PRIORITARIAS -->
-            <div id="tab-senales" class="tab-content space-y-3.5 hidden">
-                <div class="flex justify-between items-center mb-1">
-                    <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Matriz de Señales (DQ04)</h3>
-                    <span class="text-[10px] text-slate-400">Impacto / Prob / Vel / Perm / Cont</span>
-                </div>
-
-                <!-- Signal 1: Crítica -->
-                <div class="bg-slate-900 border-l-4 border-red-500 p-3 rounded-xl space-y-2">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full">Crítica (Total: 20)</span>
-                        <span class="text-[10px] text-slate-400 font-mono">Alerta Naranja</span>
-                    </div>
-                    <h4 class="font-bold text-white text-xs">1. Violencia contra mujeres en Cuauhtelulpan</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        El sábado 26, un hombre disparó contra su esposa y la retuvo en un local. Fue la nota con más interacción y llevó a la comunidad de 10 a 36 publicaciones. Coincidió con la marcha del SNTE 31 por el asesinato de la maestra Alma González.
-                    </p>
-                    <div class="grid grid-cols-5 gap-1 text-[10px] text-center pt-1 border-t border-slate-800 text-slate-400 font-mono">
-                        <div class="bg-slate-800/50 p-1 rounded">Imp: 4</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Prob: 4</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Vel: 5</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Perm: 3</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Cont: 4</div>
-                    </div>
-                </div>
-
-                <!-- Signal 2: Alta (Panteón) -->
-                <div class="bg-slate-900 border-l-4 border-amber-500 p-3 rounded-xl space-y-2">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Alta (Total: 17)</span>
-                        <span class="text-[10px] text-slate-400 font-mono">Alerta Amarilla</span>
-                    </div>
-                    <h4 class="font-bold text-white text-xs">2. Reclamo por el nuevo panteón de Acuitlapilco</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        La comisión vecinal pidió diálogo y exigió la entrega del predio. Proyecto heredado de Víctor Hugo Gutiérrez cuando fue secretario; prueba para el gobierno en funciones.
-                    </p>
-                    <div class="grid grid-cols-5 gap-1 text-[10px] text-center pt-1 border-t border-slate-800 text-slate-400 font-mono">
-                        <div class="bg-slate-800/50 p-1 rounded">Imp: 3</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Prob: 4</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Vel: 3</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Perm: 4</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Cont: 3</div>
-                    </div>
-                </div>
-
-                <!-- Signal 3: Crítica (Reacomodo político) -->
-                <div class="bg-slate-900 border-l-4 border-red-500 p-3 rounded-xl space-y-2">
-                    <div class="flex justify-between items-start">
-                        <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full">Crítica (Total: 20)</span>
-                        <span class="text-[10px] text-slate-400 font-mono">Alerta Amarilla</span>
-                    </div>
-                    <h4 class="font-bold text-white text-xs">3. Reacomodo político por Ana Lilia Rivera</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Morena presentó a Ana Lilia como coordinadora estatal. Alfonso Sánchez (alcalde con licencia) quedó fuera; comentarios negativos piden auditoría total.
-                    </p>
-                    <div class="grid grid-cols-5 gap-1 text-[10px] text-center pt-1 border-t border-slate-800 text-slate-400 font-mono">
-                        <div class="bg-slate-800/50 p-1 rounded">Imp: 4</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Prob: 5</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Vel: 3</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Perm: 4</div>
-                        <div class="bg-slate-800/50 p-1 rounded">Cont: 4</div>
-                    </div>
-                </div>
-
-                <!-- Complete Outlook Section for Next Week -->
-                <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-3">
-                    <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wide">Qué puede pasar la próxima semana (29 sep - 5 oct)</h4>
-                    <div class="space-y-2 text-xs text-slate-300">
-                        <div class="bg-slate-800/60 p-2 rounded-lg space-y-1">
-                            <div class="flex justify-between font-bold text-white">
-                                <span>La conversación política sube</span>
-                                <span class="text-blue-400 text-[10px]">Muy probable (75-92%)</span>
-                            </div>
-                            <p class="text-[11px] text-slate-400">Señal: Más de 170 publicaciones de política en la semana por la designación de Ana Lilia Rivera y el destino de Alfonso Sánchez.</p>
-                        </div>
-                        <div class="bg-slate-800/60 p-2 rounded-lg space-y-1">
-                            <div class="flex justify-between font-bold text-white">
-                                <span>Nueva encuesta de la capital</span>
-                                <span class="text-blue-400 text-[10px]">Muy probable (75-92%)</span>
-                            </div>
-                            <p class="text-[11px] text-slate-400">Señal: OPINA MX, CEOP o Datamétrica publican cada mes.</p>
-                        </div>
-                        <div class="bg-slate-800/60 p-2 rounded-lg space-y-1">
-                            <div class="flex justify-between font-bold text-white">
-                                <span>Seguridad de las mujeres como tema</span>
-                                <span class="text-amber-400 text-[10px]">Probable (55-74%)</span>
-                            </div>
-                            <p class="text-[11px] text-slate-400">Señal: Nuevo caso o pronunciamiento de colectivos feministas.</p>
-                        </div>
-                        <div class="bg-slate-800/60 p-2 rounded-lg space-y-1">
-                            <div class="flex justify-between font-bold text-white">
-                                <span>Reclamo del panteón de Acuitlapilco</span>
-                                <span class="text-slate-300 text-[10px]">Incierto (30-54%)</span>
-                            </div>
-                            <p class="text-[11px] text-slate-400">Señal: Cierre de calle o asamblea sin respuesta del Ayuntamiento.</p>
-                        </div>
+        <!-- TAB 1: RESUMEN EJECUTIVO -->
+        <section id="tab-resumen" class="tab-content space-y-4">
+            <!-- Executive Alert Banner -->
+            <div class="bg-gradient-to-r from-red-950/70 to-slate-900 border-l-4 border-red-500 p-4 rounded-2xl shadow-lg border border-red-900/30">
+                <div class="flex items-start space-x-3">
+                    <div class="text-red-400 text-xl mt-0.5"><i class="fa-solid fa-bullhorn"></i></div>
+                    <div>
+                        <h2 class="text-xs font-bold text-red-200 uppercase tracking-wide">Para decidir</h2>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                            La semana la definió la <span class="font-semibold text-white">violencia contra una mujer en San Lucas Cuauhtelulpan</span> y un <span class="font-semibold text-white">reclamo vecinal en Acuitlapilco</span>, no la carrera por la capital.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 3: TERRITORIO -->
-            <div id="tab-territorio" class="tab-content space-y-3.5 hidden">
-                <div class="flex justify-between items-center">
-                    <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Comunidades Destacadas</h3>
-                    <span class="text-[10px] text-slate-400">Interacciones y Negatividad</span>
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Menciones Capital</div>
+                    <div class="text-2xl font-bold text-white mt-1">967</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">650 textos distintos</div>
+                    <div class="text-[10px] text-blue-400 mt-1 pt-1 border-t border-slate-800">Total general: 1,171</div>
                 </div>
-
-                <div class="space-y-2">
-                    <!-- Community 1 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-white text-xs">San Lucas Cuauhtelulpan</span>
-                            <span class="text-xs text-red-400 font-bold">44% Negativas</span>
-                        </div>
-                        <div class="flex justify-between text-[11px] text-slate-400">
-                            <span>Menciones: <strong>36</strong> (prom. 10)</span>
-                            <span>Interacciones: <strong class="text-white">2,283</strong></span>
-                        </div>
-                        <p class="text-[11px] text-slate-300 bg-slate-800/50 p-1.5 rounded">Mujer atacada por su esposo en un local / Máxima atención</p>
-                    </div>
-
-                    <!-- Community 2 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-white text-xs">Santa María Acuitlapilco</span>
-                            <span class="text-xs text-amber-400 font-bold">13% Negativas</span>
-                        </div>
-                        <div class="flex justify-between text-[11px] text-slate-400">
-                            <span>Menciones: <strong>53</strong> (prom. 73)</span>
-                            <span>Interacciones: <strong class="text-white">177</strong></span>
-                        </div>
-                        <p class="text-[11px] text-slate-300 bg-slate-800/50 p-1.5 rounded">Panteón, robo de motos y lámparas fundidas</p>
-                    </div>
-
-                    <!-- Community 3 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-white text-xs">San Esteban Tizatlán</span>
-                            <span class="text-xs text-red-400 font-bold">45% Negativas</span>
-                        </div>
-                        <div class="flex justify-between text-[11px] text-slate-400">
-                            <span>Menciones: <strong>31</strong> (prom. 50)</span>
-                            <span>Interacciones: <strong class="text-white">1,615</strong></span>
-                        </div>
-                        <p class="text-[11px] text-slate-300 bg-slate-800/50 p-1.5 rounded">Persecución tras asalto a Coppel; accidentes</p>
-                    </div>
-
-                    <!-- Community 4 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-white text-xs">Loma Bonita</span>
-                            <span class="text-xs text-blue-400 font-bold">25% Negativas</span>
-                        </div>
-                        <div class="flex justify-between text-[11px] text-slate-400">
-                            <span>Menciones: <strong>32</strong> (prom. 7)</span>
-                            <span>Interacciones: <strong class="text-white">54</strong></span>
-                        </div>
-                        <p class="text-[11px] text-slate-300 bg-slate-800/50 p-1.5 rounded">Desazolve preventivo y jornada antirrábica</p>
-                    </div>
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Negatividad Real</div>
+                    <div class="text-2xl font-bold text-red-400 mt-1">20%</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">vs 2% sist.</div>
+                    <div class="text-[10px] text-slate-400 mt-1 pt-1 border-t border-slate-800">190 de 967 menciones</div>
                 </div>
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Voz Ciudadana</div>
+                    <div class="text-2xl font-bold text-amber-400 mt-1">57</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">comentarios directos</div>
+                    <div class="text-[10px] text-slate-400 mt-1 pt-1 border-t border-slate-800">Solo 6% voz directa</div>
+                </div>
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Cuauhtelulpan</div>
+                    <div class="text-2xl font-bold text-white mt-1">2,283</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">interacciones</div>
+                    <div class="text-[10px] text-red-400 mt-1 pt-1 border-t border-slate-800">36 pub (prom. 10)</div>
+                </div>
+            </div>
 
-                <!-- Citizen Voice Section -->
-                <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-2">
-                    <h4 class="text-xs font-bold text-slate-300 uppercase">Preocupaciones Ciudadanas Frecuentes</h4>
-                    <div class="space-y-1.5 text-xs text-slate-300">
-                        <div class="p-2 bg-slate-800/60 rounded flex items-start space-x-2">
-                            <i class="fa-solid fa-road text-blue-400 mt-0.5"></i>
-                            <div><strong>Retornos del nuevo puente:</strong> 6 vecinos preguntan accesos al cerrar Santa Ana.</div>
+            <!-- Explanatory Box -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 text-xs space-y-2.5 shadow-sm">
+                <h3 class="font-bold text-blue-400 flex items-center text-sm">
+                    <i class="fa-solid fa-circle-question mr-2"></i> ¿Qué significan estos indicadores clave?
+                </h3>
+                <p class="text-slate-300 leading-relaxed">
+                    • <strong class="text-white">Voz Ciudadana (57 comentarios):</strong> Es la opinión orgánica y directa escrita por personas reales en redes sociales. El 94% restante de las menciones corresponde a notas de medios, boletines oficiales o páginas institucionales replicadas.
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                    • <strong class="text-white">Negatividad del Sistema (2% sist.):</strong> Es el porcentaje que detecta automáticamente el software de monitoreo. Sin embargo, al hacer la lectura analítica DIRS-TLX, la negatividad real sube al <strong class="text-red-400">20%</strong> debido a denuncias de seguridad, servicios públicos y reclamos vecinales.
+                </p>
+            </div>
+
+            <!-- Top 10 Temas de la Semana -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 shadow-sm space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider">Top 10 Temas de la Semana</h3>
+                    <span class="text-[10px] text-slate-400">vs Promedio 3 Meses</span>
+                </div>
+                <div class="space-y-2 text-xs">
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">1. Política y elección 2027</span>
+                            <p class="text-[10px] text-slate-400">Encuestas de Morena y designación estatal</p>
                         </div>
-                        <div class="p-2 bg-slate-800/60 rounded flex items-start space-x-2">
-                            <i class="fa-solid fa-shield-dog text-amber-400 mt-0.5"></i>
-                            <div><strong>Animales en calle:</strong> Excremento y jaurías inéditas en el centro.</div>
+                        <span class="px-2.5 py-1 bg-blue-950 text-blue-300 font-bold rounded-lg text-[10px]">129 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">2. Seguridad</span>
+                            <p class="text-[10px] text-slate-400">Menos notas, mayor impacto por violencia</p>
                         </div>
+                        <span class="px-2.5 py-1 bg-red-950 text-red-300 font-bold rounded-lg text-[10px]">114 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">3. Movilidad y transporte</span>
+                            <p class="text-[10px] text-slate-400">Dudas vecinales por retornos del nuevo puente</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">114 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">4. Calles y obra pública</span>
+                            <p class="text-[10px] text-slate-400">Bacheo y distribuidor vial de Chiautempan</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">106 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">5. Cultura, turismo y Feria</span>
+                            <p class="text-[10px] text-slate-400">Pausa antes de la Feria de Tlaxcala</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">89 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">6. Salud</span>
+                            <p class="text-[10px] text-slate-400">Hospital y atención de emergencias</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">74 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">7. Bienestar y DIF</span>
+                            <p class="text-[10px] text-slate-400">Programas sociales</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">74 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">8. Lluvias e inundaciones</span>
+                            <p class="text-[10px] text-slate-400">Desazolve preventivo en Loma Bonita</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">62 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">9. Educación y maestros</span>
+                            <p class="text-[10px] text-slate-400">Marcha del SNTE 31</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">50 menc.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
+                        <div>
+                            <span class="font-bold text-white">10. Panteones y servicios</span>
+                            <p class="text-[10px] text-slate-400">Acuitlapilco exige continuidad (Sube 2.6x)</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-red-950 text-red-300 font-bold rounded-lg text-[10px]">46 menc.</span>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 4: ACTORES POLÍTICOS -->
-            <div id="tab-politicos" class="tab-content space-y-3.5 hidden">
-                <div class="flex justify-between items-center">
-                    <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Nombres en Tendencia</h3>
-                    <span class="text-[10px] text-slate-400">22–28 Sep 2026</span>
+            <!-- Recommended Actions -->
+            <div class="bg-blue-950/40 border border-blue-800/40 p-4 rounded-2xl space-y-2.5">
+                <h3 class="text-xs font-bold text-blue-300 flex items-center">
+                    <i class="fa-solid fa-lightbulb mr-2"></i> Acciones Prioritarias Destacadas
+                </h3>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    • <strong class="text-white">Fijar postura sobre seguridad de las mujeres en el sur:</strong> Respuesta a órdenes de restricción, alumbrado y patrullaje en Cuauhtelulpan (Plazo: 7 días).
+                </p>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    • <strong class="text-white">Abrir diálogo con la comisión del nuevo panteón de Acuitlapilco:</strong> Comunicar una fecha por parte del Presidente Municipal (Plazo: Antes del 5 de octubre).
+                </p>
+            </div>
+        </section>
+
+        <!-- TAB 2: SEÑALES PRIORITARIAS -->
+        <section id="tab-senales" class="tab-content space-y-4 hidden">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Matriz de Señales (DQ04)</h2>
+                <span class="text-[10px] text-slate-400">Impacto / Prob / Vel / Perm / Cont</span>
+            </div>
+
+            <!-- Signal 1 -->
+            <div class="bg-slate-900 border-l-4 border-red-500 p-4 rounded-2xl space-y-2.5 shadow-sm">
+                <div class="flex justify-between items-start">
+                    <span class="px-2.5 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full">Crítica (Total: 20)</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Alerta Naranja</span>
+                </div>
+                <h3 class="font-bold text-white text-xs sm:text-sm">1. Violencia contra mujeres en Cuauhtelulpan</h3>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    El sábado 26, un hombre disparó contra su esposa y la retuvo en un local. Fue la nota con más interacción y llevó a la comunidad de 10 a 36 publicaciones. Coincidió con la marcha del SNTE 31 por el asesinato de la maestra Alma González.
+                </p>
+                <div class="grid grid-cols-5 gap-1.5 text-[10px] text-center pt-2 border-t border-slate-800 text-slate-400 font-mono">
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Imp: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Prob: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Vel: 5</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Perm: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Cont: 4</div>
+                </div>
+            </div>
+
+            <!-- Signal 2 -->
+            <div class="bg-slate-900 border-l-4 border-amber-500 p-4 rounded-2xl space-y-2.5 shadow-sm">
+                <div class="flex justify-between items-start">
+                    <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Alta (Total: 17)</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Alerta Amarilla</span>
+                </div>
+                <h3 class="font-bold text-white text-xs sm:text-sm">2. Reclamo por el nuevo panteón de Acuitlapilco</h3>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    La comisión vecinal pidió diálogo y exigió la entrega del predio. Proyecto heredado de Víctor Hugo Gutiérrez cuando fue secretario; prueba para el gobierno en funciones.
+                </p>
+                <div class="grid grid-cols-5 gap-1.5 text-[10px] text-center pt-2 border-t border-slate-800 text-slate-400 font-mono">
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Imp: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Prob: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Vel: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Perm: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Cont: 3</div>
+                </div>
+            </div>
+
+            <!-- Signal 3 -->
+            <div class="bg-slate-900 border-l-4 border-red-500 p-4 rounded-2xl space-y-2.5 shadow-sm">
+                <div class="flex justify-between items-start">
+                    <span class="px-2.5 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full">Crítica (Total: 20)</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Alerta Amarilla</span>
+                </div>
+                <h3 class="font-bold text-white text-xs sm:text-sm">3. Reacomodo político por Ana Lilia Rivera</h3>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Morena presentó a Ana Lilia como coordinadora estatal. Alfonso Sánchez (alcalde con licencia) quedó fuera; comentarios negativos piden auditoría total.
+                </p>
+                <div class="grid grid-cols-5 gap-1.5 text-[10px] text-center pt-2 border-t border-slate-800 text-slate-400 font-mono">
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Imp: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Prob: 5</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Vel: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Perm: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Cont: 4</div>
+                </div>
+            </div>
+
+            <!-- What can happen next week (Complete Section) -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-3 shadow-sm">
+                <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wide">Qué puede pasar la próxima semana (29 sep - 5 oct)</h3>
+                <div class="space-y-2.5 text-xs text-slate-300">
+                    <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
+                        <div class="flex justify-between font-bold text-white">
+                            <span>La conversación política sube</span>
+                            <span class="text-blue-400 text-[10px]">Muy probable (75-92%)</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400">Señal: Más de 170 publicaciones de política en la semana por la designación de Ana Lilia Rivera y el destino de Alfonso Sánchez.</p>
+                    </div>
+                    <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
+                        <div class="flex justify-between font-bold text-white">
+                            <span>Aparece una nueva encuesta</span>
+                            <span class="text-blue-400 text-[10px]">Muy probable (75-92%)</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400">Señal: OPINA MX, CEOP o Datamétrica publican cada mes.</p>
+                    </div>
+                    <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
+                        <div class="flex justify-between font-bold text-white">
+                            <span>Seguridad de las mujeres como tema</span>
+                            <span class="text-amber-400 text-[10px]">Probable (55-74%)</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400">Señal: Nuevo caso o pronunciamiento de colectivos feministas.</p>
+                    </div>
+                    <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
+                        <div class="flex justify-between font-bold text-white">
+                            <span>Reclamo del panteón de Acuitlapilco</span>
+                            <span class="text-slate-300 text-[10px]">Incierto (30-54%)</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400">Señal: Cierre de calle o asamblea sin respuesta del Ayuntamiento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: TERRITORIO -->
+        <section id="tab-territorio" class="tab-content space-y-4 hidden">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Comunidades Destacadas</h2>
+                <span class="text-[10px] text-slate-400">Interacciones y Negatividad</span>
+            </div>
+
+            <div class="space-y-2.5">
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-xs sm:text-sm">San Lucas Cuauhtelulpan</span>
+                        <span class="text-xs text-red-400 font-bold">44% Negativas</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Menciones: <strong>36</strong> (prom. 10)</span>
+                        <span>Interacciones: <strong class="text-white">2,283</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Mujer atacada por su esposo en un local / Máxima atención</p>
                 </div>
 
-                <div class="space-y-2">
-                    <!-- Politician 1 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-white text-xs">Carlos López Suárez</h4>
-                            <p class="text-[10px] text-slate-400">Presidente Municipal</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs font-bold text-white">49 menc.</span>
-                            <p class="text-[10px] text-red-400">Baja a la mitad</p>
-                        </div>
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-xs sm:text-sm">Santa María Acuitlapilco</span>
+                        <span class="text-xs text-amber-400 font-bold">13% Negativas</span>
                     </div>
-
-                    <!-- Politician 2 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-white text-xs">Víctor Hugo Gutiérrez</h4>
-                            <p class="text-[10px] text-slate-400">Aspirante de Morena</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs font-bold text-white">6 menc.</span>
-                            <p class="text-[10px] text-slate-400">Igual (5 notas afines)</p>
-                        </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Menciones: <strong>53</strong> (prom. 73)</span>
+                        <span>Interacciones: <strong class="text-white">177</strong></span>
                     </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Panteón, robo de motos y lámparas fundidas</p>
+                </div>
 
-                    <!-- Politician 3 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-white text-xs">Ana Lilia Rivera</h4>
-                            <p class="text-[10px] text-slate-400">Coordinadora estatal Morena</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs font-bold text-white">4 menc.</span>
-                            <p class="text-[10px] text-blue-400">Subirá (Designación)</p>
-                        </div>
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-xs sm:text-sm">San Esteban Tizatlán</span>
+                        <span class="text-xs text-red-400 font-bold">45% Negativas</span>
                     </div>
-
-                    <!-- Politician 4 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-white text-xs">Alfonso Sánchez García</h4>
-                            <p class="text-[10px] text-slate-400">Alcalde con licencia</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs font-bold text-white">3 menc.</span>
-                            <p class="text-[10px] text-red-400">4 com. negativos</p>
-                        </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Menciones: <strong>31</strong> (prom. 50)</span>
+                        <span>Interacciones: <strong class="text-white">1,615</strong></span>
                     </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Persecución tras asalto a Coppel; accidentes</p>
+                </div>
 
-                    <!-- Politician 5 -->
-                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-white text-xs">Madáí Pérez Carrillo</h4>
-                            <p class="text-[10px] text-slate-400">Diputada local / Aspirante</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs font-bold text-white">4 menc.</span>
-                            <p class="text-[10px] text-amber-400">Sube 3x (Jitomates)</p>
-                        </div>
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-xs sm:text-sm">Loma Bonita</span>
+                        <span class="text-xs text-blue-400 font-bold">25% Negativas</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Menciones: <strong>32</strong> (prom. 7)</span>
+                        <span>Interacciones: <strong class="text-white">54</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Desazolve preventivo y jornada antirrábica</p>
+                </div>
+            </div>
+
+            <!-- Citizen Voice Section -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-2.5 shadow-sm">
+                <h3 class="text-xs font-bold text-slate-300 uppercase">Preocupaciones Ciudadanas Frecuentes</h3>
+                <div class="space-y-2 text-xs text-slate-300">
+                    <div class="p-2.5 bg-slate-800/60 rounded-xl flex items-start space-x-2.5">
+                        <i class="fa-solid fa-road text-blue-400 mt-0.5"></i>
+                        <div><strong>Retornos del nuevo puente:</strong> 6 vecinos preguntan accesos al cerrar Santa Ana.</div>
+                    </div>
+                    <div class="p-2.5 bg-slate-800/60 rounded-xl flex items-start space-x-2.5">
+                        <i class="fa-solid fa-shield-dog text-amber-400 mt-0.5"></i>
+                        <div><strong>Animales en calle:</strong> Excremento y jaurías inéditas en el centro.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: ACTORES POLÍTICOS -->
+        <section id="tab-politicos" class="tab-content space-y-4 hidden">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Nombres en Tendencia</h2>
+                <span class="text-[10px] text-slate-400">22–28 Sep 2026</span>
+            </div>
+
+            <div class="space-y-2.5">
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-xs sm:text-sm">Carlos López Suárez</h3>
+                        <p class="text-[10px] text-slate-400">Presidente Municipal</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-white">49 menc.</span>
+                        <p class="text-[10px] text-red-400">Baja a la mitad</p>
                     </div>
                 </div>
 
-                <!-- 3-Month Cumulative Top -->
-                <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-2">
-                    <h4 class="text-xs font-bold text-slate-300 uppercase">Acumulado 3 Meses (Ref)</h4>
-                    <div class="text-xs space-y-1 text-slate-300">
-                        <div class="flex justify-between py-1 border-b border-slate-800">
-                            <span>Carlos López Suárez</span>
-                            <strong class="text-white">1,119 menc. (7% neg)</strong>
-                        </div>
-                        <div class="flex justify-between py-1 border-b border-slate-800">
-                            <span>Lorena Cuéllar Cisneros</span>
-                            <strong class="text-white">784 menc. (58% neg)</strong>
-                        </div>
-                        <div class="flex justify-between py-1">
-                            <span>Alfonso Sánchez García</span>
-                            <strong class="text-white">102 menc. (79% neg)</strong>
-                        </div>
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-xs sm:text-sm">Víctor Hugo Gutiérrez</h3>
+                        <p class="text-[10px] text-slate-400">Aspirante de Morena</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-white">6 menc.</span>
+                        <p class="text-[10px] text-slate-400">Igual (5 notas afines)</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-xs sm:text-sm">Ana Lilia Rivera</h3>
+                        <p class="text-[10px] text-slate-400">Coordinadora estatal Morena</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-white">4 menc.</span>
+                        <p class="text-[10px] text-blue-400">Subirá (Designación)</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-xs sm:text-sm">Alfonso Sánchez García</h3>
+                        <p class="text-[10px] text-slate-400">Alcalde con licencia</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-white">3 menc.</span>
+                        <p class="text-[10px] text-red-400">4 com. negativos</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-xs sm:text-sm">Madáí Pérez Carrillo</h3>
+                        <p class="text-[10px] text-slate-400">Diputada local / Aspirante</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-white">4 menc.</span>
+                        <p class="text-[10px] text-amber-400">Sube 3x (Jitomates)</p>
                     </div>
                 </div>
             </div>
 
-        </div>
+            <!-- Cumulative 3 Months -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-2.5 shadow-sm">
+                <h3 class="text-xs font-bold text-slate-300 uppercase">Acumulado 3 Meses (Referencia)</h3>
+                <div class="text-xs space-y-2 text-slate-300">
+                    <div class="flex justify-between py-1.5 border-b border-slate-800">
+                        <span>Carlos López Suárez</span>
+                        <strong class="text-white">1,119 menc. (7% neg)</strong>
+                    </div>
+                    <div class="flex justify-between py-1.5 border-b border-slate-800">
+                        <span>Lorena Cuéllar Cisneros</span>
+                        <strong class="text-white">784 menc. (58% neg)</strong>
+                    </div>
+                    <div class="flex justify-between py-1.5">
+                        <span>Alfonso Sánchez García</span>
+                        <strong class="text-white">102 menc. (79% neg)</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Phone Footer Navigation / Home Indicator -->
-        <div class="bg-slate-900 py-3 px-6 flex justify-between items-center border-t border-slate-800 text-slate-400 text-xs z-30">
-            <span class="text-[10px] text-slate-400">DIRS-TLX v1.0</span>
-            <div class="w-28 h-1 bg-slate-700 rounded-full"></div>
-            <span class="text-[10px] text-slate-400">Sep 2026</span>
-        </div>
+    </main>
 
-    </div>
-
-    <!-- Executive Summary Modal -->
+    <!-- Methodology Modal -->
     <div id="summaryModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl p-5 space-y-4 shadow-2xl text-slate-200">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="font-bold text-white text-base flex items-center">
-                    <i class="fa-solid fa-circle-info text-blue-500 mr-2"></i> Notas Metodológicas & Contexto
+                    <i class="fa-solid fa-circle-info text-blue-500 mr-2"></i> Notas Metodológicas
                 </h3>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white text-lg p-2"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="text-xs space-y-2 text-slate-300 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
+            <div class="text-xs space-y-2.5 text-slate-300 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
                 <p><strong>Fuente:</strong> Exportación SentiOne "DBG_2026", del 22 sep (00:31 h) al 28 sep (16:12 h).</p>
                 <p><strong>Volumen General:</strong> 1,171 menciones totales (967 sobre la capital, de las cuales 650 son textos distintos). Solo 57 comentarios ciudadanos directos (6%).</p>
                 <p><strong>Negatividad:</strong> El sistema automatizado detecta 2% de negatividad (19 menciones), mientras que el criterio analítico DIRS-TLX detecta <strong>20% (190 menciones)</strong> debido a denuncias y seguridad.</p>
                 <p><strong>Señales Prioritarias:</strong> La seguridad de las mujeres en San Lucas Cuauhtelulpan encabeza las alertas críticas (20 pts), seguida del panteón de Acuitlapilco y el reacomodo de Morena tras la designación de Ana Lilia Rivera.</p>
             </div>
             <div class="pt-2">
-                <button onclick="closeModal()" class="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl text-xs transition">
+                <button onclick="closeModal()" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl text-xs transition active:scale-95 touch-manipulation">
                     Entendido, volver al Dashboard
                 </button>
             </div>
@@ -569,7 +517,7 @@
             });
             // Remove active style from all buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
                 btn.classList.add('text-slate-400', 'hover:text-white', 'hover:bg-slate-800');
             });
 
@@ -578,5 +526,20 @@
 
             // Activate button
             const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+            activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-md');
             activeBtn.classList.remove('text-slate-400', 'hover:text-white', 'hover:bg-slate-800');
+
+            // Scroll to top of content smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openModal() {
+            document.getElementById('summaryModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('summaryModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
