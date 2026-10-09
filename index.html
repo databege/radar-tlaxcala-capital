@@ -43,8 +43,8 @@
                 TLX
             </div>
             <div>
-                <span class="block px-2 py-0.5 text-[10px] font-semibold tracking-wider text-blue-400 uppercase bg-blue-950/60 border border-blue-800/50 rounded-md mb-0.5 w-max">DIRS-TLX • 26 sep al 2 oct 2026</span>
-                <h1 class="text-xs sm:text-sm font-bold text-slate-100 leading-tight">Radar semanal en el municipio de Tlaxcala</h1>
+                <span class="block px-2 py-0.5 text-[10px] font-semibold tracking-wider text-blue-400 uppercase bg-blue-950/60 border border-blue-800/50 rounded-md mb-0.5 w-max">DIRS-TLX • 2 al 8 oct 2026</span>
+                <h1 class="text-xs sm:text-sm font-bold text-slate-100 leading-tight">Radar de tendencias semanal en el municipio de Tlaxcala</h1>
             </div>
         </div>
         <button onclick="openModal()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center active:scale-95 touch-manipulation shrink-0 font-medium shadow-sm">
@@ -52,7 +52,7 @@
         </button>
     </header>
 
-    <nav class="sticky top-[61px] bg-slate-900/90 backdrop-blur-md border-b border-slate-800 p-2 z-30 grid grid-cols-5 gap-1 shadow-sm">
+    <nav class="sticky top-[61px] bg-slate-900/90 backdrop-blur-md border-b border-slate-800 p-2 z-30 grid grid-cols-6 gap-1 shadow-sm">
         <button onclick="switchTab('tab-resumen')" id="btn-tab-resumen" class="tab-btn py-2.5 px-1 rounded-xl font-medium text-[11px] bg-blue-600 text-white shadow-md transition flex flex-col items-center justify-center touch-manipulation">
             <i class="fa-solid fa-chart-pie text-xs mb-0.5"></i>
             <span>Resumen</span>
@@ -64,6 +64,10 @@
         <button onclick="switchTab('tab-senales')" id="btn-tab-senales" class="tab-btn py-2.5 px-1 rounded-xl font-medium text-[11px] text-slate-400 hover:text-white hover:bg-slate-800 transition flex flex-col items-center justify-center touch-manipulation">
             <i class="fa-solid fa-triangle-exclamation text-xs mb-0.5"></i>
             <span>Señales</span>
+        </button>
+        <button onclick="switchTab('tab-riesgo')" id="btn-tab-riesgo" class="tab-btn py-2.5 px-1 rounded-xl font-medium text-[11px] text-slate-400 hover:text-white hover:bg-slate-800 transition flex flex-col items-center justify-center touch-manipulation">
+            <i class="fa-solid fa-table-cells text-xs mb-0.5"></i>
+            <span>Riesgo</span>
         </button>
         <button onclick="switchTab('tab-territorio')" id="btn-tab-territorio" class="tab-btn py-2.5 px-1 rounded-xl font-medium text-[11px] text-slate-400 hover:text-white hover:bg-slate-800 transition flex flex-col items-center justify-center touch-manipulation">
             <i class="fa-solid fa-map-location-dot text-xs mb-0.5"></i>
@@ -86,7 +90,7 @@
                     <div>
                         <h2 class="text-xs font-bold text-red-200 uppercase tracking-wide">Para decidir</h2>
                         <p class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
-                            El asesinato de un expolicía federal en pleno centro de la capital dominó la semana y la audiencia lo convirtió en burla contra el discurso de "el estado más seguro". En paralelo, la designación de Ana Lilia Rivera abrió la carrera por la capital: Raymundo Vázquez Conchas aparece como nuevo aspirante y Miguel Ángel Covarrubias domina un sondeo con apoyo visiblemente organizado.
+                            El choque de una combi de Flecha Azul en Avenida Independencia fue la historia más comentada y la gente pide quitarle la concesión. El enojo más alto está en las comunidades: Acuitlapilco por las Viviendas del Bienestar y Loma Bonita por su tianguis. Lo único aplaudido fue municipal: el retiro de apartados en la calle. La tendencia política está en las definiciones de posibles candidatos: Alfonso Sánchez va por un distrito y Nydia Cano dejó el gabinete.
                         </p>
                     </div>
                 </div>
@@ -97,30 +101,30 @@
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="text-[10px] text-slate-400 uppercase font-semibold">Registros Totales</div>
-                        <div class="text-2xl font-bold text-white mt-1">5,099</div>
+                        <div class="text-2xl font-bold text-white mt-1">3,300</div>
                     </div>
-                    <div class="text-[10px] text-blue-400 mt-2 pt-1 border-t border-slate-800">1,578 menciones y 3,521 comentarios</div>
+                    <div class="text-[10px] text-blue-400 mt-2 pt-1 border-t border-slate-800">1,202 menciones y 2,098 comentarios</div>
                 </div>
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="text-[10px] text-slate-400 uppercase font-semibold">Sentimiento Negativo</div>
-                        <div class="text-2xl font-bold text-red-400 mt-1">66%</div>
+                        <div class="text-2xl font-bold text-red-400 mt-1">55%</div>
                     </div>
-                    <div class="text-[10px] text-slate-400 mt-2 pt-1 border-t border-slate-800">Desglose de opinión</div>
+                    <div class="text-[10px] text-slate-400 mt-2 pt-1 border-t border-slate-800">Lectura de los 1,843 comentarios</div>
                 </div>
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="text-[10px] text-slate-400 uppercase font-semibold">Comentarios Generales</div>
-                        <div class="text-2xl font-bold text-amber-400 mt-1">3,521</div>
+                        <div class="text-2xl font-bold text-amber-400 mt-1">2,098</div>
                     </div>
-                    <div class="text-[10px] text-slate-400 mt-2 pt-1 border-t border-slate-800">362 publicaciones</div>
+                    <div class="text-[10px] text-slate-400 mt-2 pt-1 border-t border-slate-800">264 publicaciones</div>
                 </div>
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="text-[10px] text-slate-400 uppercase font-semibold">Comunidad con más interacciones</div>
-                        <div class="text-sm font-bold text-white mt-1 leading-snug">Cuauhtelulpan</div>
+                        <div class="text-sm font-bold text-white leading-snug mt-1">Ocotlán</div>
                     </div>
-                    <div class="text-[10px] text-red-400 mt-2 pt-1 border-t border-slate-800">4,862 interacciones (78 publicaciones)</div>
+                    <div class="text-[10px] text-red-400 mt-2 pt-1 border-t border-slate-800">1,433 interacciones (57 publicaciones)</div>
                 </div>
             </div>
 
@@ -133,73 +137,73 @@
                 <div class="space-y-2 text-xs">
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">1. Seguridad</span>
-                            <p class="text-[10px] text-slate-400">Medios: 236 menciones | Comentarios: 1,171</p>
+                            <span class="font-bold text-white">1. Transporte público y accidentes</span>
+                            <p class="text-[10px] text-slate-400">Medios: 179 menciones | Comentarios: 585</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-red-950 text-red-300 font-bold rounded-lg text-[10px]">31% negativo</span>
+                        <span class="px-2.5 py-1 bg-amber-950 text-amber-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">60% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">2. Salud</span>
-                            <p class="text-[10px] text-slate-400">Medios: 146 menciones | Comentarios: 983</p>
+                            <span class="font-bold text-white">2. Inseguridad y delitos</span>
+                            <p class="text-[10px] text-slate-400">Medios: 131 menciones | Comentarios: 330</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">29% negativo</span>
+                        <span class="px-2.5 py-1 bg-red-950 text-red-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">70% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">3. Movilidad y transporte</span>
-                            <p class="text-[10px] text-slate-400">Medios: 140 menciones | Comentarios: 452</p>
+                            <span class="font-bold text-white">3. Búsqueda de jóvenes desaparecidas</span>
+                            <p class="text-[10px] text-slate-400">Medios: 19 menciones | Comentarios: 207</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">26% negativo</span>
+                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">16% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">4. Política y elección 2027</span>
-                            <p class="text-[10px] text-slate-400">Medios: 155 menciones | Comentarios: 433</p>
+                            <span class="font-bold text-white">4. Apartados en la calle</span>
+                            <p class="text-[10px] text-slate-400">Medios: 9 menciones | Comentarios: 146</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-blue-950 text-blue-300 font-bold rounded-lg text-[10px]">26% negativo</span>
+                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">34% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">5. Calles y obra pública</span>
-                            <p class="text-[10px] text-slate-400">Medios: 119 menciones | Comentarios: 374</p>
+                            <span class="font-bold text-white">5. Vivienda y programas sociales</span>
+                            <p class="text-[10px] text-slate-400">Medios: 66 menciones | Comentarios: 120</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-amber-950 text-amber-300 font-bold rounded-lg text-[10px]">30% negativo</span>
+                        <span class="px-2.5 py-1 bg-red-950 text-red-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">75% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">6. Cultura, turismo y Feria</span>
-                            <p class="text-[10px] text-slate-400">Medios: 154 menciones | Comentarios: 339</p>
+                            <span class="font-bold text-white">6. Obras y servicios</span>
+                            <p class="text-[10px] text-slate-400">Medios: 160 menciones | Comentarios: 113</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">23% negativo</span>
+                        <span class="px-2.5 py-1 bg-amber-950 text-amber-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">62% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">7. Bienestar y DIF</span>
-                            <p class="text-[10px] text-slate-400">Medios: 59 menciones | Comentarios: 202</p>
+                            <span class="font-bold text-white">7. Arrancones</span>
+                            <p class="text-[10px] text-slate-400">Medios: 11 menciones | Comentarios: 103</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">21% negativo</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">50% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">8. Medio ambiente</span>
-                            <p class="text-[10px] text-slate-400">Medios: 40 menciones | Comentarios: 126</p>
+                            <span class="font-bold text-white">8. Comercio y tianguis</span>
+                            <p class="text-[10px] text-slate-400">Medios: 71 menciones | Comentarios: 98</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">18% negativo</span>
+                        <span class="px-2.5 py-1 bg-amber-950 text-amber-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">67% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">9. Educación y maestros</span>
-                            <p class="text-[10px] text-slate-400">Medios: 65 menciones | Comentarios: 108</p>
+                            <span class="font-bold text-white">9. Contienda 2027</span>
+                            <p class="text-[10px] text-slate-400">Medios: 120 menciones | Comentarios: 69</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px]">29% negativo</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">51% negativo</span>
                     </div>
                     <div class="flex items-center justify-between p-2.5 bg-slate-800/60 rounded-xl">
                         <div>
-                            <span class="font-bold text-white">10. Transparencia y finanzas</span>
-                            <p class="text-[10px] text-slate-400">Medios: 48 menciones | Comentarios: 67</p>
+                            <span class="font-bold text-white">10. Animales y tradiciones</span>
+                            <p class="text-[10px] text-slate-400">Medios: 13 menciones | Comentarios: 42</p>
                         </div>
-                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold rounded-lg text-[10px]">13% negativo</span>
+                        <span class="px-2.5 py-1 bg-red-950 text-red-300 font-bold rounded-lg text-[10px] shrink-0 ml-2">79% negativo</span>
                     </div>
                 </div>
             </div>
@@ -216,18 +220,18 @@
             <div class="grid grid-cols-3 gap-2.5">
                 <div class="bg-red-950/40 border border-red-900/50 p-3 rounded-2xl text-center">
                     <div class="text-[10px] text-red-300 uppercase font-semibold">Negativo</div>
-                    <div class="text-xl font-bold text-red-400 mt-1">66%</div>
-                    <div class="text-[9px] text-slate-400 mt-1">Desglose de opinión</div>
+                    <div class="text-xl font-bold text-red-400 mt-1">55%</div>
+                    <div class="text-[9px] text-slate-400 mt-1">1,018 comentarios</div>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 p-3 rounded-2xl text-center">
                     <div class="text-[10px] text-slate-300 uppercase font-semibold">Neutro</div>
-                    <div class="text-xl font-bold text-slate-200 mt-1">19%</div>
-                    <div class="text-[9px] text-slate-400 mt-1">Discusión y datos</div>
+                    <div class="text-xl font-bold text-slate-200 mt-1">41%</div>
+                    <div class="text-[9px] text-slate-400 mt-1">Incluye oración y solidaridad</div>
                 </div>
                 <div class="bg-emerald-950/40 border border-emerald-900/50 p-3 rounded-2xl text-center">
                     <div class="text-[10px] text-emerald-300 uppercase font-semibold">Positivo</div>
-                    <div class="text-xl font-bold text-emerald-400 mt-1">16%</div>
-                    <div class="text-[9px] text-slate-400 mt-1">Votos por aspirantes</div>
+                    <div class="text-xl font-bold text-emerald-400 mt-1">4%</div>
+                    <div class="text-[9px] text-slate-400 mt-1">66 comentarios</div>
                 </div>
             </div>
 
@@ -237,29 +241,36 @@
                     <i class="fa-solid fa-face-angry mr-2"></i> Temas que Generan Enojo, Burla y Emociones Negativas
                 </h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    La burla sigue siendo la emoción dominante en los comentarios; esta semana se dirige sobre todo a la gobernadora y a su discurso de seguridad. Las historias con más negatividad y enojo de la audiencia son:
+                    Esta semana se leyeron a mano los 1,843 comentarios sobre la capital. Dominan la burla y el hartazgo ("otra vez", "siempre es lo mismo"). Las historias con más negatividad son:
                 </p>
                 <div class="space-y-2.5 text-xs">
                     <div class="p-3 bg-slate-800/60 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Asesinato de expolicía federal en el centro</span>
-                            <span class="text-red-400 text-[10px]">1,032 comentarios</span>
+                            <span>Choque de Flecha Azul en Av. Independencia</span>
+                            <span class="text-red-400 text-[10px] shrink-0 ml-2">419 comentarios</span>
                         </div>
-                        <p class="text-[11px] text-slate-300">"¿No que el estado más seguro?"; dudas sobre las cámaras del C5i y sobre si fue asalto. Le robaron 180 mil pesos frente al banco.</p>
+                        <p class="text-[11px] text-slate-300">62% negativos. "Otra vez Flecha Azul", "que les quiten la concesión"; choferes que corren por ganar el pasaje.</p>
                     </div>
                     <div class="p-3 bg-slate-800/60 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Gobernadora sale de evento en Calpulalpan</span>
-                            <span class="text-red-400 text-[10px]">133 comentarios</span>
+                            <span>Estafa de 120 mil pesos a un albañil</span>
+                            <span class="text-red-400 text-[10px] shrink-0 ml-2">189 comentarios</span>
                         </div>
-                        <p class="text-[11px] text-slate-300">Burla ante la protesta campesina ("ya siente pasos") y defensores que acusan gente pagada.</p>
+                        <p class="text-[11px] text-slate-300">79% negativos. Culpa a la "cuñada cómplice" y a la víctima; "¿para qué sirven las cámaras?".</p>
                     </div>
                     <div class="p-3 bg-slate-800/60 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Encuesta sobre el gabinete estatal</span>
-                            <span class="text-red-400 text-[10px]">90 comentarios</span>
+                            <span>Viviendas del Bienestar con fugas en Acuitlapilco</span>
+                            <span class="text-red-400 text-[10px] shrink-0 ml-2">101 comentarios</span>
                         </div>
-                        <p class="text-[11px] text-slate-300">La respuesta dominante: "a ninguno", "a nadie", "todos son corruptos".</p>
+                        <p class="text-[11px] text-slate-300">82% negativos en un solo día. "¿Qué esperaban?"; el enojo va contra el gobierno estatal.</p>
+                    </div>
+                    <div class="p-3 bg-slate-800/60 rounded-xl space-y-1">
+                        <div class="flex justify-between font-bold text-white">
+                            <span>Tianguis de Loma Bonita</span>
+                            <span class="text-red-400 text-[10px] shrink-0 ml-2">88 comentarios</span>
+                        </div>
+                        <p class="text-[11px] text-slate-300">74% negativos. Vecinos contra tianguistas y tianguistas contra la delegada.</p>
                     </div>
                 </div>
             </div>
@@ -270,29 +281,29 @@
                     <i class="fa-solid fa-heart mr-2"></i> Lo positivo: Temas que atraen y generan afecto
                 </h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Lo positivo fue escaso y casi todo político o cultural: apoyo a aspirantes, actividades culturales y programas sociales. La comida y el mercado, lo único sin enojo la semana pasada, no tuvieron historia propia.
+                    Lo positivo fue escaso: 66 comentarios. Más de la mitad están en una sola acción municipal, el retiro de objetos que apartan lugares en la calle.
                 </p>
                 <div class="space-y-2.5 text-xs">
                     <div class="p-3 bg-slate-800/60 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Cultura, turismo y Feria</span>
-                            <span class="text-emerald-400 text-[10px]">213 interacciones</span>
+                            <span>Retiro de apartados en la calle</span>
+                            <span class="text-emerald-400 text-[10px] shrink-0 ml-2">39 comentarios positivos</span>
                         </div>
-                        <p class="text-[11px] text-slate-300">Exposición de documentos históricos, regreso de los vinilos y actividades culturales.</p>
+                        <p class="text-[11px] text-slate-300">"Ya era hora", "que sea permanente". Piden multas y que llegue a Acuitlapilco, Loma Xicohténcatl y la calle Allende.</p>
                     </div>
                     <div class="p-3 bg-slate-800/60 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Bienestar y DIF</span>
-                            <span class="text-emerald-400 text-[10px]">205 interacciones</span>
+                            <span>Aniversario 501 de la ciudad y danzón</span>
+                            <span class="text-emerald-400 text-[10px] shrink-0 ml-2">167 interacciones</span>
                         </div>
-                        <p class="text-[11px] text-slate-300">Programas sociales y apoyos.</p>
+                        <p class="text-[11px] text-slate-300">Notas culturales bien recibidas; piden el desfile en el centro y horarios del danzón.</p>
                     </div>
                     <div class="p-3 bg-slate-800/60 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Cerdito encebado suspendido en San Gabriel Cuauhtla</span>
-                            <span class="text-emerald-400 text-[10px]">182 interacciones</span>
+                            <span>Oración por Michelle y Andrea</span>
+                            <span class="text-emerald-400 text-[10px] shrink-0 ml-2">32 comentarios de solidaridad</span>
                         </div>
-                        <p class="text-[11px] text-slate-300">Aplausos a la suspensión por bienestar animal; la historia con más comentarios positivos de la semana.</p>
+                        <p class="text-[11px] text-slate-300">La búsqueda de las dos estudiantes juntó 220 comentarios, casi todos de apoyo a las familias.</p>
                     </div>
                 </div>
             </div>
@@ -311,35 +322,65 @@
                     <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Crítica (Puntaje: 21)</span>
                     <span class="text-[10px] text-amber-400 font-mono">Alerta Naranja</span>
                 </div>
-                <h3 class="font-bold text-white text-xs sm:text-sm">1. Inseguridad en el centro y descrédito del discurso de seguridad</h3>
+                <h3 class="font-bold text-white text-xs sm:text-sm">1. Inseguridad y descrédito de las cámaras</h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Expolicía federal asesinado a metros de la Plaza de Toros (30 sep); 1,032 comentarios y sarcasmo repetido sobre "el estado más seguro".
+                    La estafa de 120 mil pesos a un albañil (189 comentarios, 79% negativos) y el asesinato del expolicía frente al banco (68% negativos) se leen juntos: "¿para qué sirven el C5 y las cámaras?".
                 </p>
+                <div class="space-y-1.5">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Publicaciones con más interacción</div>
+                        <a href="https://www.facebook.com/659154059553590/posts/1701870825281903" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>Alerta Vigilante: "Iba con la ilusión de comprar su camioneta"</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">85 comentarios</span>
+                        </a>
+                        <a href="https://www.facebook.com/347132270755782/posts/1738465508289111" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>Zacatelcoradio: la misma estafa</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">126 interacciones</span>
+                        </a>
+                        <a href="https://www.facebook.com/316344897296656/posts/1425956689668799" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>El Sol de Tlaxcala: confirman asalto en el centro</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">30 comentarios</span>
+                        </a>
+                </div>
                 <div class="grid grid-cols-5 gap-1 text-[9px] text-center pt-2 border-t border-slate-800 text-slate-300 font-medium">
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Impacto: 5</div>
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Probabilidad: 4</div>
-                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Velocidad: 5</div>
-                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Permanencia: 4</div>
-                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Contagio: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Velocidad: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Permanencia: 5</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Contagio: 4</div>
                 </div>
             </div>
 
             <!-- Signal 2 -->
             <div class="bg-slate-900 border-l-4 border-amber-500 p-4 rounded-2xl space-y-2.5 shadow-sm">
                 <div class="flex justify-between items-start">
-                    <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Alta (Puntaje: 19)</span>
-                    <span class="text-[10px] text-amber-400 font-mono">Alerta Amarilla</span>
+                    <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Crítica (Puntaje: 20)</span>
+                    <span class="text-[10px] text-amber-400 font-mono">Alerta Naranja</span>
                 </div>
-                <h3 class="font-bold text-white text-xs sm:text-sm">2. Destino de Alfonso Sánchez y carrera por la capital</h3>
+                <h3 class="font-bold text-white text-xs sm:text-sm">2. Transporte público: quitar la concesión a Flecha Azul</h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Al 1 de octubre no había pedido regresar a la alcaldía. Suenan Raymundo Vázquez Conchas y Miguel Ángel Covarrubias; Víctor Hugo Gutiérrez casi desaparece.
+                    El choque del lunes 5 en Avenida Independencia fue la historia más comentada (419 comentarios, 62% negativos). La gente culpa a la empresa y a Movilidad estatal.
                 </p>
+                <div class="space-y-1.5">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Publicaciones con más interacción</div>
+                        <a href="https://www.tiktok.com/@pinceldluz/video/7693262661869505799" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>PincelDluz (TikTok): fuerte choque en Avenida Independencia</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">7,224 interacciones</span>
+                        </a>
+                        <a href="https://www.facebook.com/381396177533519/videos/1148768694382384" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>Cuarto de Guerra: colectiva contra negocio de motos</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">3,405 interacciones</span>
+                        </a>
+                        <a href="https://www.facebook.com/reel/1385348530291037/" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>La Bestia Política: accidente moviliza a policías</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">764 interacciones</span>
+                        </a>
+                </div>
                 <div class="grid grid-cols-5 gap-1 text-[9px] text-center pt-2 border-t border-slate-800 text-slate-300 font-medium">
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Impacto: 4</div>
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Probabilidad: 4</div>
-                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Velocidad: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Velocidad: 5</div>
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Permanencia: 4</div>
-                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Contagio: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Contagio: 3</div>
                 </div>
             </div>
 
@@ -349,10 +390,55 @@
                     <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Alta (Puntaje: 18)</span>
                     <span class="text-[10px] text-amber-400 font-mono">Alerta Amarilla</span>
                 </div>
-                <h3 class="font-bold text-white text-xs sm:text-sm">3. Rechazo al gobierno estatal</h3>
+                <h3 class="font-bold text-white text-xs sm:text-sm">3. Viviendas del Bienestar con fugas en Acuitlapilco</h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    "A ninguno" ante la encuesta del gabinete y burla por la salida de la gobernadora en Calpulalpan. Sus comentarios son los más negativos de la base de políticos.
+                    Una sola publicación del jueves 8 juntó 101 comentarios con 82% negativos. El enojo va contra el gobierno estatal y Morena, pero el lugar es una comunidad de la capital.
                 </p>
+                <div class="space-y-1.5">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Publicaciones con más interacción</div>
+                        <a href="https://www.facebook.com/475064424650290/posts/1566851938804861" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>385 Grados: reportan viviendas en malas condiciones</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">391 interacciones</span>
+                        </a>
+                </div>
+                <div class="grid grid-cols-5 gap-1 text-[9px] text-center pt-2 border-t border-slate-800 text-slate-300 font-medium">
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Impacto: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Probabilidad: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Velocidad: 4</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Permanencia: 3</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Contagio: 4</div>
+                </div>
+            </div>
+
+            <!-- Signal 4 -->
+            <div class="bg-slate-900 border-l-4 border-amber-500 p-4 rounded-2xl space-y-2.5 shadow-sm">
+                <div class="flex justify-between items-start">
+                    <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Alta (Puntaje: 18)</span>
+                    <span class="text-[10px] text-amber-400 font-mono">Alerta Amarilla</span>
+                </div>
+                <h3 class="font-bold text-white text-xs sm:text-sm">4. Reacomodo de la contienda por la capital</h3>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                   Alfonso Sánchez se registró para el Distrito federal 2; Nydia Cano dejó la Secretaría de las Mujeres. CEOP pone a Víctor Hugo Gutiérrez con 26% y a Madaí Pérez con 19% en Morena.
+                </p>
+                <div class="space-y-1.5">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Publicaciones con más interacción</div>
+                        <a href="https://www.facebook.com/659154059553590/posts/1705999261535726" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>Alerta Vigilante: Alfonso Sánchez va por el Distrito federal 2</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">1,272 interacciones</span>
+                        </a>
+                        <a href="https://www.facebook.com/916693539751967/posts/1947819629972681" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>El Gritón Digital: Nydia Cano renuncia y va por la capital</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">900 interacciones</span>
+                        </a>
+                        <a href="https://www.facebook.com/641106414051791/posts/1636831801145909" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>La Polilla: sondeo Covarrubias contra Vázquez Conchas</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">10 comentarios</span>
+                        </a>
+                        <a href="https://www.facebook.com/512030260934060/posts/1659762776160797" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>Agenda Tlaxcala: encuesta CEOP en la capital</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">14 interacciones</span>
+                        </a>
+                </div>
                 <div class="grid grid-cols-5 gap-1 text-[9px] text-center pt-2 border-t border-slate-800 text-slate-300 font-medium">
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Impacto: 4</div>
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Probabilidad: 4</div>
@@ -362,19 +448,30 @@
                 </div>
             </div>
 
-            <!-- Signal 4 -->
+            <!-- Signal 5 -->
             <div class="bg-slate-900 border-l-4 border-amber-500 p-4 rounded-2xl space-y-2.5 shadow-sm">
                 <div class="flex justify-between items-start">
-                    <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Alta (Puntaje: 17)</span>
+                    <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">Alta (Puntaje: 16)</span>
                     <span class="text-[10px] text-amber-400 font-mono">Alerta Amarilla</span>
                 </div>
-                <h3 class="font-bold text-white text-xs sm:text-sm">4. Apoyo en serie organizado en comentarios de todos los bandos</h3>
+                <h3 class="font-bold text-white text-xs sm:text-sm">5. Pleito del tianguis de Loma Bonita</h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Cerca de la mitad de los comentarios que nombran a Rivera, Sánchez, Vázquez y Covarrubias son frases cortas o repetidas casi idénticas.
+                    Tianguistas protestaron el martes 6 contra la delegada y la acusan de cobro de piso. Los vecinos que comentan apoyan el reordenamiento. Según los comentarios, el próximo lunes intentarán volver a vender.
                 </p>
+                <div class="space-y-1.5">
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Publicaciones con más interacción</div>
+                        <a href="https://www.facebook.com/reel/4469148830067430/" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>Gentetlx: comerciantes se manifiestan</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">129 interacciones</span>
+                        </a>
+                        <a href="https://www.facebook.com/381396177533519/posts/1413326271007166" target="_blank" rel="noopener" class="flex items-start justify-between gap-2 p-2 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition">
+                            <span class="text-[11px] text-blue-300 leading-snug"><i class="fa-solid fa-arrow-up-right-from-square mr-1.5 text-[9px]"></i>Cuarto de Guerra: protesta contra presunto hostigamiento</span>
+                            <span class="text-[10px] text-slate-400 shrink-0">98 interacciones</span>
+                        </a>
+                </div>
                 <div class="grid grid-cols-5 gap-1 text-[9px] text-center pt-2 border-t border-slate-800 text-slate-300 font-medium">
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Impacto: 3</div>
-                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Probabilidad: 5</div>
+                    <div class="bg-slate-800/60 p-1.5 rounded-lg">Probabilidad: 4</div>
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Velocidad: 3</div>
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Permanencia: 4</div>
                     <div class="bg-slate-800/60 p-1.5 rounded-lg">Contagio: 2</div>
@@ -397,48 +494,131 @@
 
             <!-- What can happen next week -->
             <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-3 shadow-sm">
-                <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wide">Qué puede pasar la próxima semana (3 oct - 9 oct)</h3>
+                <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wide">Qué puede pasar la próxima semana (9 oct - 15 oct)</h3>
                 <div class="space-y-2.5 text-xs text-slate-300">
                     <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Nuevos sondeos sobre la capital</span>
-                            <span class="text-blue-400 text-[10px]">Muy probable (75-92%)</span>
+                            <span>Nueva encuesta o sondeo sobre la capital</span>
+                            <span class="text-blue-400 text-[10px] shrink-0 ml-2">Muy probable (75-92%)</span>
                         </div>
-                        <p class="text-[11px] text-slate-400">Señal: Publicaciones con Vázquez Conchas y Covarrubias en La Polilla, 385 Grados u otras.</p>
+                        <p class="text-[11px] text-slate-400">Señal: Publicaciones de CEOP, La Polilla u otras casas con nombres de la capital.</p>
                     </div>
                     <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>La seguridad sigue dominando</span>
-                            <span class="text-amber-400 text-[10px]">Probable (55-74%)</span>
+                            <span>Otro accidente de transporte público con más de 100 comentarios</span>
+                            <span class="text-amber-400 text-[10px] shrink-0 ml-2">Probable (55-74%)</span>
                         </div>
-                        <p class="text-[11px] text-slate-400">Señal: Más de 500 comentarios en notas de seguridad.</p>
+                        <p class="text-[11px] text-slate-400">Señal: Notas con "Flecha Azul", "ATAH" o "colectiva".</p>
                     </div>
                     <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Alfonso Sánchez define su destino</span>
-                            <span class="text-slate-300 text-[10px]">Incierto (30-54%)</span>
+                            <span>Los apartados regresan y la gente lo señala</span>
+                            <span class="text-amber-400 text-[10px] shrink-0 ml-2">Probable (55-74%)</span>
                         </div>
-                        <p class="text-[11px] text-slate-400">Señal: Solicitud de regreso ante cabildo o anuncio público.</p>
+                        <p class="text-[11px] text-slate-400">Señal: Comentarios con "ya los volvieron a poner" o fotos de Vinos y Piedras.</p>
                     </div>
                     <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Detenidos por el asesinato del centro</span>
-                            <span class="text-slate-300 text-[10px]">Incierto (30-54%)</span>
+                            <span>Segunda protesta del tianguis de Loma Bonita</span>
+                            <span class="text-amber-400 text-[10px] shrink-0 ml-2">Probable (55-74%)</span>
                         </div>
-                        <p class="text-[11px] text-slate-400">Señal: Comunicado oficial de la Fiscalía.</p>
+                        <p class="text-[11px] text-slate-400">Señal: Notas del lunes 12 sobre el tianguis.</p>
                     </div>
                     <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
                         <div class="flex justify-between font-bold text-white">
-                            <span>Víctor Hugo Gutiérrez recupera presencia</span>
-                            <span class="text-slate-300 text-[10px]">Poco probable (8-29%)</span>
+                            <span>Otro funcionario deja el gabinete para buscar la capital</span>
+                            <span class="text-slate-300 text-[10px] shrink-0 ml-2">Incierto (30-54%)</span>
                         </div>
-                        <p class="text-[11px] text-slate-400">Señal: Más de 20 menciones en la semana.</p>
+                        <p class="text-[11px] text-slate-400">Señal: Renuncias anunciadas en medios políticos.</p>
+                    </div>
+                    <div class="bg-slate-800/60 p-3 rounded-xl space-y-1">
+                        <div class="flex justify-between font-bold text-white">
+                            <span>Detenidos por el asesinato del expolicía</span>
+                            <span class="text-slate-300 text-[10px] shrink-0 ml-2">Poco probable (8-29%)</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400">Señal: Comunicado de la Fiscalía.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 4: TERRITORIO (Todas las comunidades incluidas) -->
+        <!-- TAB 4: CUADRANTE DE RIESGO -->
+        <section id="tab-riesgo" class="tab-content space-y-4 hidden">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Cuadrante de Temas de Riesgo</h2>
+                <span class="text-[10px] text-slate-400">Zona por tema</span>
+            </div>
+
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 shadow-sm space-y-3">
+                <h3 class="text-base sm:text-lg font-bold text-white leading-snug">En las comunidades, el enojo más alto no está en el centro: está en Acuitlapilco, Loma Bonita y San Gabriel</h3>
+                <p class="text-xs text-slate-300 leading-relaxed">Cada celda muestra el nivel, el porcentaje de comentarios negativos y cuántos comentarios hay. En cada comunidad el enojo se concentra en una sola historia, así que puede bajar rápido si se atiende.</p>
+                <div class="overflow-x-auto -mx-1">
+                    <table class="w-full text-xs border-separate border-spacing-0">
+                        <thead>
+                            <tr><th class="p-1.5 sticky left-0 bg-slate-900 z-10"></th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-bus mr-1 text-slate-500"></i>Transporte público</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-shield-halved mr-1 text-slate-500"></i>Inseguridad</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-car-side mr-1 text-slate-500"></i>Arrancones</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-road-barrier mr-1 text-slate-500"></i>Apartados en la calle</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-store mr-1 text-slate-500"></i>Tianguis y comercio</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-house-crack mr-1 text-slate-500"></i>Vivienda y apoyos</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-faucet-drip mr-1 text-slate-500"></i>Obras y servicios</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-paw mr-1 text-slate-500"></i>Animales y tradiciones</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-magnifying-glass mr-1 text-slate-500"></i>Jóvenes desaparecidas</th><th class="p-1.5 text-left font-semibold text-slate-400 align-bottom min-w-[92px]"><i class="fa-solid fa-check-to-slot mr-1 text-slate-500"></i>Contienda 2027</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">Acuitlapilco</div><div class="text-[10px] text-slate-500">125 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I1</span><span class="text-[10px] font-medium">38% · 21</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">82% · 101</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td>
+                            </tr>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">Loma Bonita</div><div class="text-[10px] text-slate-500">88 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">74% · 88</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td>
+                            </tr>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">López Mateos</div><div class="text-[10px] text-slate-500">89 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">74% · 89</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td>
+                            </tr>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">San Gabriel Cuauhtla</div><div class="text-[10px] text-slate-500">47 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">79% · 42</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td>
+                            </tr>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">Ocotlán</div><div class="text-[10px] text-slate-500">139 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">88% · 16</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-amber-950/60 border-amber-800/60 text-amber-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I2</span><span class="text-[10px] font-medium">50% · 103</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">81% · 16</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td>
+                            </tr>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">Tizatlán</div><div class="text-[10px] text-slate-500">41 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I1</span><span class="text-[10px] font-medium">27% · 22</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I1</span><span class="text-[10px] font-medium">7% · 15</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td>
+                            </tr>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">Otras comunidades</div><div class="text-[10px] text-slate-500">28 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td>
+                            </tr>
+                            <tr class="">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-white text-xs leading-tight">Centro y ciudad</div><div class="text-[10px] text-slate-500">1,286 comentarios</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg border bg-rose-950/70 border-rose-800/60 text-rose-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I3</span><span class="text-[10px] font-medium">62% · 517</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">71% · 194</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I1</span><span class="text-[10px] font-medium">34% · 146</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">base chica</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-rose-950/70 border-rose-800/60 text-rose-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I3</span><span class="text-[10px] font-medium">61% · 75</span></div></td><td class="p-1"><div class="h-14 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center px-2 text-[10px] text-slate-500">sin comentarios</div></td><td class="p-1"><div class="h-14 rounded-lg border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I1</span><span class="text-[10px] font-medium">16% · 207</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-amber-950/60 border-amber-800/60 text-amber-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I2</span><span class="text-[10px] font-medium">42% · 50</span></div></td>
+                            </tr>
+                            <tr class="border-t border-slate-700">
+                                <td class="p-1.5 pr-3 align-middle sticky left-0 bg-slate-900 z-10 min-w-[110px]"><div class="font-bold text-blue-400 text-xs leading-tight">Municipio</div><div class="text-[10px] text-slate-500">todas las zonas</div></td>
+                                <td class="p-1"><div class="h-14 rounded-lg border bg-rose-950/70 border-rose-800/60 text-rose-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I3</span><span class="text-[10px] font-medium">60% · 585</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">70% · 330</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-amber-950/60 border-amber-800/60 text-amber-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I2</span><span class="text-[10px] font-medium">50% · 103</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I1</span><span class="text-[10px] font-medium">34% · 146</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-rose-950/70 border-rose-800/60 text-rose-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I3</span><span class="text-[10px] font-medium">67% · 98</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">75% · 120</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-rose-950/70 border-rose-800/60 text-rose-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I3</span><span class="text-[10px] font-medium">62% · 113</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-red-700 border-red-500 text-white px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I4</span><span class="text-[10px] font-medium">79% · 42</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I1</span><span class="text-[10px] font-medium">16% · 207</span></div></td><td class="p-1"><div class="h-14 rounded-lg border bg-amber-950/60 border-amber-800/60 text-amber-300 px-2 py-1.5 flex flex-col justify-between"><span class="text-sm font-bold">I2</span><span class="text-[10px] font-medium">51% · 69</span></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex flex-wrap gap-x-4 gap-y-2 text-[10px] text-slate-400 pt-2 border-t border-slate-800">
+                    <span class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded border bg-emerald-950/70 border-emerald-800/60 text-emerald-300 text-[10px] font-bold">I1</span><span>menos de 40% negativos</span></span><span class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded border bg-amber-950/60 border-amber-800/60 text-amber-300 text-[10px] font-bold">I2</span><span>40 a 55%</span></span><span class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded border bg-rose-950/70 border-rose-800/60 text-rose-300 text-[10px] font-bold">I3</span><span>55 a 70%</span></span><span class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded border bg-red-700 border-red-500 text-white text-[10px] font-bold">I4</span><span>70% o más</span></span><span class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded bg-slate-800/40 border border-slate-800 text-[10px] text-slate-500">base chica</span><span>menos de 15 comentarios</span></span>
+                </div>
+                <p class="text-[10px] text-slate-500">Desliza la tabla hacia la derecha para ver todos los temas.</p>
+            </div>
+
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-2.5 shadow-sm">
+                <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wide flex items-center">
+                    <i class="fa-solid fa-circle-info mr-2"></i> Cómo leer el cuadrante
+                </h3>
+                <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                    <p>• <strong class="text-white">Acuitlapilco, vivienda (I4):</strong> las 101 críticas vienen de una sola publicación sobre las Viviendas del Bienestar. El transporte ahí está en verde porque el duelo por el joven que murió en el libramiento se expresa con condolencias.</p>
+                    <p>• <strong class="text-white">Loma Bonita, tianguis (I4):</strong> vecinos contra tianguistas y tianguistas contra la delegada. El Ayuntamiento queda como árbitro.</p>
+                    <p>• <strong class="text-white">López Mateos, inseguridad (I4):</strong> todo es la estafa al albañil en la zona del recinto ferial.</p>
+                    <p>• <strong class="text-white">San Gabriel Cuauhtla, tradiciones (I4):</strong> rechazo a la suspensión del cerdito encebado, una decisión estatal.</p>
+                    <p>• <strong class="text-white">Ocotlán, arrancones (I2):</strong> mitad burla y mitad queja por ruido y falta de patrullas.</p>
+                    <p>• <strong class="text-white">Centro y ciudad:</strong> la inseguridad (71%) es el único I4; los apartados son el único tema en verde con volumen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: TERRITORIO (Todas las comunidades incluidas) -->
         <section id="tab-territorio" class="tab-content space-y-4 hidden">
             <div class="flex justify-between items-center">
                 <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Comunidades y Territorio</h2>
@@ -449,276 +629,252 @@
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="font-bold text-white text-sm">Ocotlán</span>
-                        <span class="text-xs text-amber-400 font-bold">25% Negativos</span>
+                        <span class="text-xs text-red-400 font-bold">57% Negativos</span>
                     </div>
                     <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>219</strong></span>
-                        <span>Interacciones: <strong class="text-white">874</strong></span>
+                        <span>Comentarios: <strong>139</strong></span>
+                        <span>Interacciones: <strong class="text-white">1,433</strong> (Mayor en la capital)</span>
                     </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">La comunidad con más comentarios de la semana</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">San Lucas Cuauhtelulpan</span>
-                        <span class="text-xs text-amber-400 font-bold">25% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>158</strong></span>
-                        <span>Interacciones: <strong class="text-white">4,862</strong> (Mayor en la capital)</span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Hombre dispara a su esposa</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">Col. Adolfo López Mateos</span>
-                        <span class="text-xs text-red-400 font-bold">33% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>84</strong></span>
-                        <span>Interacciones: <strong class="text-white">346</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Seguridad y servicios</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">Loma Xicohténcatl</span>
-                        <span class="text-xs text-amber-400 font-bold">23% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>74</strong></span>
-                        <span>Interacciones: <strong class="text-white">468</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Hospital y salud</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">San Esteban Tizatlán</span>
-                        <span class="text-xs text-amber-400 font-bold">25% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>64</strong></span>
-                        <span>Interacciones: <strong class="text-white">539</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">El reclamo por el agua se apagó en la conversación</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">Centro Histórico</span>
-                        <span class="text-xs text-amber-400 font-bold">23% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>61</strong></span>
-                        <span>Interacciones: <strong class="text-white">459</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Asesinato a metros de la Plaza de Toros</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">San Diego Metepec</span>
-                        <span class="text-xs text-emerald-400 font-bold">13% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>46</strong></span>
-                        <span>Interacciones: <strong class="text-white">492</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Notas institucionales y comunitarias</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">San Hipólito Chimalpa</span>
-                        <span class="text-xs text-amber-400 font-bold">26% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>31</strong></span>
-                        <span>Menciones: <strong>11</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Comentarios en notas de bienestar</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">San Gabriel Cuauhtla</span>
-                        <span class="text-xs text-emerald-400 font-bold">13% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>30</strong></span>
-                        <span>Menciones: <strong>8</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Suspensión del cerdito encebado</p>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Arrancones en el Bulevar e incendio en vivienda</p>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="font-bold text-white text-sm">Santa María Acuitlapilco</span>
-                        <span class="text-xs text-red-400 font-bold">36% Negativos</span>
+                        <span class="text-xs text-red-400 font-bold">74% Negativos</span>
                     </div>
                     <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>25</strong></span>
-                        <span>Interacciones: <strong class="text-white">2,179</strong></span>
+                        <span>Comentarios: <strong>125</strong></span>
+                        <span>Interacciones: <strong class="text-white">550</strong></span>
                     </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Duelo por joven ganadero muerto en el periférico</p>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Viviendas del Bienestar con fugas y muerte de joven en el libramiento</p>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">La Joya</span>
-                        <span class="text-xs text-red-400 font-bold">45% Negativos</span>
+                        <span class="font-bold text-white text-sm">Col. Adolfo López Mateos</span>
+                        <span class="text-xs text-red-400 font-bold">74% Negativos</span>
                     </div>
                     <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>11</strong></span>
-                        <span>Menciones específicas: <strong>18</strong></span>
+                        <span>Comentarios: <strong>89</strong></span>
+                        <span>Menciones: <strong>4</strong></span>
                     </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Baja tras el caso de la Técnica 36</p>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-white text-sm">Santa María Ixtulco</span>
-                        <span class="text-xs text-red-400 font-bold">33% Negativos</span>
-                    </div>
-                    <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>6</strong></span>
-                        <span>Menciones: <strong>8</strong></span>
-                    </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Poca conversación</p>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Estafa al albañil en la zona del recinto ferial</p>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="font-bold text-white text-sm">Loma Bonita</span>
-                        <span class="text-xs text-emerald-400 font-bold">0% Negativos</span>
+                        <span class="text-xs text-red-400 font-bold">74% Negativos</span>
                     </div>
                     <div class="flex justify-between text-[11px] text-slate-400">
-                        <span>Comentarios: <strong>4</strong></span>
-                        <span>Menciones: <strong>11</strong></span>
+                        <span>Comentarios: <strong>88</strong></span>
+                        <span>Interacciones: <strong class="text-white">355</strong></span>
                     </div>
-                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Notas institucionales</p>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Tianguis contra delegada</p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-sm">San Gabriel Cuauhtla</span>
+                        <span class="text-xs text-red-400 font-bold">77% Negativos</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Comentarios: <strong>47</strong></span>
+                        <span>Interacciones: <strong class="text-white">365</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Cerdito encebado suspendido y drenaje en calle Hidalgo</p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-sm">San Esteban Tizatlán</span>
+                        <span class="text-xs text-emerald-400 font-bold">37% Negativos</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Comentarios: <strong>41</strong></span>
+                        <span>Interacciones: <strong class="text-white">802</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Obras rumbo a Día de Muertos y búsqueda de Andrea</p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-sm">Loma Xicohténcatl</span>
+                        <span class="text-xs text-red-400 font-bold">68% Negativos</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Comentarios: <strong>19</strong></span>
+                        <span>Menciones: <strong>17</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Base chica</p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-sm">El Alto</span>
+                        <span class="text-xs text-amber-400 font-bold">50% Negativos</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Comentarios: <strong>12</strong></span>
+                        <span>Interacciones: <strong class="text-white">316</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Base chica; queja por venta de droga en calle Hidalgo</p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-sm">San Isidro Tlacomulco</span>
+                        <span class="text-xs text-slate-400 font-bold">Base chica</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Comentarios: <strong>6</strong></span>
+                        <span>Menciones: <strong>18</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Incendio en vivienda</p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-sm">Centro Histórico</span>
+                        <span class="text-xs text-slate-400 font-bold">Base chica</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Comentarios: <strong>0</strong></span>
+                        <span>Menciones: <strong>27</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Sus historias no nombran la comunidad; van en "Centro y ciudad" del cuadrante</p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white text-sm">Santa María Ixtulco</span>
+                        <span class="text-xs text-slate-400 font-bold">Base chica</span>
+                    </div>
+                    <div class="flex justify-between text-[11px] text-slate-400">
+                        <span>Comentarios: <strong>0</strong></span>
+                        <span>Menciones: <strong>12</strong></span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 bg-slate-800/50 p-2 rounded-xl">Caravanas de salud del 19 al 25 de octubre</p>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 5: ACTORES POLÍTICOS (Top 10 completo, sin abreviaturas) -->
+        <!-- TAB 6: ACTORES POLÍTICOS (Top 10 completo, sin abreviaturas) -->
         <section id="tab-politicos" class="tab-content space-y-4 hidden">
             <div class="flex justify-between items-center">
                 <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Top 10 Actores Políticos en Tendencia</h2>
-                <span class="text-[10px] text-slate-400">26 Sep – 2 Oct 2026</span>
+                <span class="text-[10px] text-slate-400">2 Oct – 8 Oct 2026</span>
             </div>
 
             <div class="space-y-2.5 text-xs">
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
                     <div>
                         <h3 class="font-bold text-white text-sm">1. Ana Lilia Rivera</h3>
-                        <p class="text-[10px] text-slate-400">Coordinadora estatal de Morena (2,164 menciones en medios)</p>
+                        <p class="text-[10px] text-slate-400">Coordinadora estatal de Morena (404 menciones en medios)</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">6,986 comentarios</span>
-                        <p class="text-[10px] text-blue-400">Mayormente felicitaciones; 51% en serie</p>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
-                    <div>
-                        <h3 class="font-bold text-white text-sm">2. Alfonso Sánchez García</h3>
-                        <p class="text-[10px] text-slate-400">Alcalde con licencia (735 menciones en medios)</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">3,922 comentarios</span>
-                        <p class="text-[10px] text-red-400">Perdió la coordinación; 53% en serie</p>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">825 comentarios</span>
+                        <p class="text-[10px] text-blue-400">Felicitaciones; 29% en serie</p>
                     </div>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
                     <div>
-                        <h3 class="font-bold text-white text-sm">3. Lorena Cuéllar Cisneros</h3>
-                        <p class="text-[10px] text-slate-400">Gobernadora (732 menciones en medios)</p>
+                        <h3 class="font-bold text-white text-sm">2. Lorena Cuéllar Cisneros</h3>
+                        <p class="text-[10px] text-slate-400">Gobernadora (318 menciones en medios)</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">607 comentarios</span>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">121 comentarios</span>
                         <p class="text-[10px] text-red-400">El tono más negativo de la semana</p>
                     </div>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
                     <div>
-                        <h3 class="font-bold text-white text-sm">4. Claudia Sheinbaum</h3>
-                        <p class="text-[10px] text-slate-400">Presidenta de México (527 menciones en medios)</p>
+                        <h3 class="font-bold text-white text-sm">3. Alfonso Sánchez García</h3>
+                        <p class="text-[10px] text-slate-400">Alcalde con licencia; va por el Distrito federal 2 (236 menciones)</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">80 comentarios</span>
-                        <p class="text-[10px] text-slate-400">Tono dividido</p>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">172 comentarios</span>
+                        <p class="text-[10px] text-red-400">Burla por perder la coordinación</p>
                     </div>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
                     <div>
-                        <h3 class="font-bold text-white text-sm">5. Carlos López Suárez</h3>
-                        <p class="text-[10px] text-slate-400">Presidente municipal (283 menciones en medios)</p>
+                        <h3 class="font-bold text-white text-sm">4. Carlos López Suárez</h3>
+                        <p class="text-[10px] text-slate-400">Presidente municipal; sigue en el cargo (216 menciones)</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">1 comentario</span>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">0 comentarios</span>
                         <p class="text-[10px] text-slate-400">Invisible para la audiencia</p>
                     </div>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
                     <div>
-                        <h3 class="font-bold text-white text-sm">6. Raymundo Vázquez Conchas</h3>
-                        <p class="text-[10px] text-slate-400">Diputado federal con licencia; suena para la capital (170 menciones)</p>
+                        <h3 class="font-bold text-white text-sm">5. Claudia Sheinbaum</h3>
+                        <p class="text-[10px] text-slate-400">Presidenta de México (201 menciones en medios)</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">392 comentarios</span>
-                        <p class="text-[10px] text-blue-400">Nuevo nombre; 56% en serie</p>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
-                    <div>
-                        <h3 class="font-bold text-white text-sm">7. Miriam Martínez Sánchez</h3>
-                        <p class="text-[10px] text-slate-400">Diputada local; mencionada por el PAN para 2027 (96 menciones)</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">145 comentarios</span>
-                        <p class="text-[10px] text-blue-400">Apoyo opositor</p>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">17 comentarios</span>
+                        <p class="text-[10px] text-slate-400">Tono dividido</p>
                     </div>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
                     <div>
-                        <h3 class="font-bold text-white text-sm">8. Mariana Espinosa de los Monteros</h3>
-                        <p class="text-[10px] text-slate-400">DIF estatal (82 menciones en medios)</p>
+                        <h3 class="font-bold text-white text-sm">6. Miriam Martínez Sánchez</h3>
+                        <p class="text-[10px] text-slate-400">Diputada local del PAN; suena para gubernatura (90 menciones)</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">5 comentarios</span>
-                        <p class="text-[10px] text-slate-400">Muestra insuficiente</p>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
-                    <div>
-                        <h3 class="font-bold text-white text-sm">9. Miguel Ángel Covarrubias</h3>
-                        <p class="text-[10px] text-slate-400">Coordinador del PT en la capital (59 menciones en medios)</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">286 comentarios</span>
-                        <p class="text-[10px] text-blue-400">Domina sondeo; 57% en serie</p>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">60 comentarios</span>
+                        <p class="text-[10px] text-blue-400">Votos en sondeos; 38% en serie</p>
                     </div>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
                     <div>
-                        <h3 class="font-bold text-white text-sm">10. Anabell Ávalos Zempoalteca</h3>
-                        <p class="text-[10px] text-slate-400">Senadora del PRI (47 menciones en medios)</p>
+                        <h3 class="font-bold text-white text-sm">7. Anabell Ávalos Zempoalteca</h3>
+                        <p class="text-[10px] text-slate-400">Senadora del PRI (81 menciones en medios)</p>
                     </div>
-                    <div class="text-right">
-                        <span class="text-xs font-bold text-white">151 comentarios</span>
-                        <p class="text-[10px] text-blue-400">Apoyo por experiencia</p>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">58 comentarios</span>
+                        <p class="text-[10px] text-slate-400">Opiniones divididas</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-sm">8. Nydia Cano Rodríguez</h3>
+                        <p class="text-[10px] text-slate-400">Dejó la Secretaría de las Mujeres el 7 oct (78 menciones)</p>
+                    </div>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">19 comentarios</span>
+                        <p class="text-[10px] text-blue-400">Agradecimiento y buenos deseos</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-sm">9. Raymundo Vázquez Conchas</h3>
+                        <p class="text-[10px] text-slate-400">Diputado federal con licencia (66 menciones en medios)</p>
+                    </div>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">8 comentarios</span>
+                        <p class="text-[10px] text-slate-400">Opiniones divididas</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 class="font-bold text-white text-sm">10. Miguel Ángel Covarrubias</h3>
+                        <p class="text-[10px] text-slate-400">Coordinador del PT en la capital (31 menciones, 4,409 interacciones)</p>
+                    </div>
+                    <div class="text-right shrink-0 ml-3">
+                        <span class="text-xs font-bold text-white">92 comentarios</span>
+                        <p class="text-[10px] text-blue-400">Apoyo como denunciante</p>
                     </div>
                 </div>
             </div>
@@ -736,9 +892,9 @@
                 <button onclick="closeModal()" class="text-slate-400 hover:text-white text-lg p-2"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="text-xs space-y-2.5 text-slate-300 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
-                <p>• <strong>Contexto General:</strong> Del 26 de septiembre al 2 de octubre de 2026 se registraron 5,099 registros (1,578 menciones y 3,521 comentarios con texto), casi el triple de comentarios que la semana anterior.</p>
-                <p>• <strong>Cambio de Agenda:</strong> El asesinato de un expolicía federal en el centro concentró 1,032 comentarios; la carrera por la capital se abrió tras la designación de Ana Lilia Rivera, con Raymundo Vázquez Conchas y Miguel Ángel Covarrubias como nombres nuevos.</p>
-                <p>• <strong>Sentimiento:</strong> La opinión se divide en 66% de negatividad, 19% de neutros y 16% de positivos, estos últimos casi todos votos por aspirantes.</p>
+                <p>• <strong>Contexto General:</strong> Del 2 al 8 de octubre de 2026 se registraron 3,300 registros (1,202 menciones y 2,098 comentarios con texto), 35% menos que la semana anterior.</p>
+                <p>• <strong>Cambio de Agenda:</strong> El choque de Flecha Azul en Avenida Independencia fue la historia más comentada (419). El enojo más alto se movió a las comunidades: Acuitlapilco, Loma Bonita y San Gabriel Cuauhtla. La tendencia política está en las definiciones de posibles candidatos: Alfonso Sánchez va por un distrito y Nydia Cano dejó el gabinete.</p>
+                <p>• <strong>Sentimiento:</strong> Se leyeron a mano los 1,843 comentarios sobre la capital: 55% negativos, 41% neutros y 4% positivos. Lo único aplaudido fue el retiro de apartados en la calle.</p>
             </div>
             <div class="pt-2">
                 <button onclick="closeModal()" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl text-xs transition active:scale-95 touch-manipulation">
